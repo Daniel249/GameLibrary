@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace GameLibrary 
+namespace GameLibrary.Graphics.Printer
 {
     public class Printer {
         // print and delete methods

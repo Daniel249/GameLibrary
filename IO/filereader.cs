@@ -1,8 +1,9 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using GameLibrary.Graphics.Printer;
 
-namespace GameLibrary
+namespace GameLibrary.IO.Reader
 {
     class Filereader {
         // path to file 
