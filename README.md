@@ -1,5 +1,8 @@
 # GameLibrary
 Class library for console based games
 
+
+
 ## Dependents
-@Daniel249
+@Daniel249/SB
+SpaceBattle
