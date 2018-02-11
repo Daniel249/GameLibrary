@@ -1,7 +1,9 @@
 
 
 namespace GameLibrary.Agents {
-    interface IOperable {
-         
-    }
+// is operable by an agent
+interface IOperable {
+        
+}
+
 }

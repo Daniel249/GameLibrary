@@ -2,8 +2,8 @@
 
 namespace GameLibrary.Agents {
 
-    interface IAgent {
-        
-    }
+interface IAgent {
+    
+}
 
 }

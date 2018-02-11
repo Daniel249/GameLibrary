@@ -1,8 +1,10 @@
 
 
 namespace GameLibrary.Graphics.Printer.Printable {
-    class pre : Printer {
-        
-    }
+// can give information to be printed
+// inherted by GUI elements and Visible objects
+interface IPrintable {
+
+}
 
 }
