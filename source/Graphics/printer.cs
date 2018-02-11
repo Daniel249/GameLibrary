@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
+
 using SB;
+using GameLibrary.Platform.Game;
 
 namespace GameLibrary.Graphics.Printer {
 public class Printer {

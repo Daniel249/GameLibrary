@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 
-namespace GameLibrary.User.Interface {
+namespace GameLibrary.Interface {
 class Watch {
     int queueCounter;
     Stopwatch stopwatch;
