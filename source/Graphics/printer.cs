@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 
 using SB;
+using SB.Objects;
 using GameLibrary.Platform.Game;
 
 namespace GameLibrary.Graphics.Printer {
