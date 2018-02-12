@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using GameLibrary.Services.Chronometrics;
 // print to console on tick
-using GameLibrary.Graphics.Printer;
+using GameLibrary.Graphics.Display;
 // access player health to print
 using GameLibrary.Platform.Game;
 
@@ -21,9 +21,13 @@ class Watch : IChronometric{
     // ichronometrici implementation
     Chronometer cronometro;
     public bool tick() {
-        Terminal.PrintString(getTime(), Terminal.getSize_x()-40, 0, Terminal.getDefaultBack(), Terminal.getDefaultFore());
-        Terminal.PrintString("health: " + Game.getPlayer().getHealth(), Terminal.getSize_x()-80, 0, Terminal.getDefaultBack(), Terminal.getDefaultFore());
-        return cronometro.tick();
+        if(cronometro.tick()) {
+            Terminal.PrintString(getTime(), Terminal.getSize_x()-40, 0, Terminal.getDefaultBack(), Terminal.getDefaultFore());
+            Terminal.PrintString("health: " + Game.getPlayer().getHealth(), Terminal.getSize_x()-80, 0, Terminal.getDefaultBack(), Terminal.getDefaultFore());
+            return true;
+        } else {
+            return false;
+        }
     }
     public void toggle(bool on_off) {
         cronometro.toggle(on_off);

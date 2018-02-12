@@ -1,5 +1,5 @@
 
-using GameLibrary.Graphics.Printer.Printable;
+using GameLibrary.Graphics.Render;
 
 namespace GameLibrary.Interface.Elements {
 // inherits from IPrintable

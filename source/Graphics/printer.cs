@@ -4,8 +4,9 @@ using System.Linq;
 using SB;
 using SB.Objects;
 using GameLibrary.Platform.Game;
+using GameLibrary.Graphics.Display;
 
-namespace GameLibrary.Graphics.Printer {
+namespace GameLibrary.Graphics.Render {
 public class Printer {
     // print and delete methods
     // both use printdelete targeted at certain point to print either a char o a space

@@ -1,5 +1,6 @@
 using System;
-namespace GameLibrary.Graphics.Printer {
+using GameLibrary.Graphics.Render;
+namespace GameLibrary.Graphics.Display {
 static class Terminal {
     // numbers based on testing
     // not in use

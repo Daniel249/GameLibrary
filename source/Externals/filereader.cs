@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using GameLibrary.Graphics.Printer;
+using GameLibrary.Graphics.Display;
 using SB;
 
 namespace GameLibrary.Externals.Reader {
