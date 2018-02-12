@@ -1,7 +1,7 @@
 using System;
 using GameLibrary;
 using GameLibrary.Externals.Reader;
-using GameLibrary.Graphics.Printer;
+using GameLibrary.Graphics.Display;
 using GameLibrary.Services.Chronometrics;
 using SB;
 

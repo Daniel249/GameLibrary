@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using System.Threading;
-using GameLibrary;
 using GameLibrary.Interface;
-using GameLibrary.Graphics.Printer;
-using GameLibrary.Services.Chronometrics;
 using GameLibrary.Platform.Game;
 
 namespace GameLibrary.Services.Chronometrics {
