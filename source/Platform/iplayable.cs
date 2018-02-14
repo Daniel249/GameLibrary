@@ -5,7 +5,7 @@ namespace GameLibrary.Platform {
 // has a run and stop
 // maybe other properties 
 interface IPlayable {
-
+    void run();
 
 }
 

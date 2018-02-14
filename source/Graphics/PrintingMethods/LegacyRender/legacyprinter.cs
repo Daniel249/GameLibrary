@@ -12,6 +12,9 @@ class LegacyPrinter : Printer{
     public override void delete(IPrintable entity) {
         printdelete(entity, false);
     }
+    public override void updateFrame() {
+        
+    }
     public static void partialDelete(Entity entity, int speed_x, int speed_y) {
 
     }
@@ -39,8 +42,8 @@ class LegacyPrinter : Printer{
         }
 
         // other values and references
-        int pos_x = entity.getPos_x();
-        int pos_y = entity.getPos_y();
+        int pos_x = entity.Location_x;
+        int pos_y = entity.Location_y;
         int map_x = Game.getMap().getSize_x();
         int map_y = Game.getMap().getSize_y();
         int console_x = pos_x + Game.getMap().getLocation_x();

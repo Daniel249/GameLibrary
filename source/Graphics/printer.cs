@@ -6,7 +6,7 @@ namespace GameLibrary.Graphics {
         public abstract void print(IPrintable printable);
         public abstract void delete(IPrintable printable);
         
-        
+        public abstract void updateFrame();
         // public static Prnter ge
     }
 }

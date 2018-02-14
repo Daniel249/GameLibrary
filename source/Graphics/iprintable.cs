@@ -8,8 +8,8 @@ interface IPrintable {
     Texture getTexture();
     // de ayer. agrega generics para que las texturas sean char[][] o string.
     // se olverloadea en el metodo que llama al IPrintable
-    int getPos_x();
-    int getPos_y();
+    int Location_x {get; set;}
+    int Location_y {get; set;}
 }
 
 }

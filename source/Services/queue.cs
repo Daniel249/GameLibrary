@@ -1,16 +1,16 @@
 using System.Collections.Generic;
-using System.Threading;
-using GameLibrary.Interface;
-using GameLibrary.Platform.Game;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
-namespace GameLibrary.Services.Chronometrics {
+using GameLibrary.Interface;
+using GameLibrary.Services.Chronometrics;
+
+namespace GameLibrary.Services {
 public class Queue {
     // list of units, bullets and weapons
     readonly List<IChronometric> chronoQueue;
     // turn length in ms. Process sleeps that ammoung once per run
-    const int sleepDuration = 10;
-    // number of cycles to reset to 0
-    const int intervalDelay = 30;
+    const int sleepDuration = 1000;
 
     public void addToQueue(IChronometric chrono) {
         chronoQueue.Add(chrono);
@@ -19,18 +19,14 @@ public class Queue {
         return chronoQueue.Remove(chrono);
     }
 
-    public bool run() {
-        // turn Length
-        // Thread.Sleep(sleepDuration);
-
-        // all bullets move
+    public void run() {
         for(int i = 0; i < chronoQueue.Count; i++) {
             IChronometric u = chronoQueue[i];
             // check chronometer
             u.tick();               
         }
-        return true;
     }
+
 
     // constructor
     public Queue() {

@@ -4,17 +4,13 @@ using System.Collections.Generic;
 using GameLibrary.Graphics.Display;
 using GameLibrary.Externals.Reader;
 using GameLibrary.Graphics;
-using GameLibrary.Services.Chronometrics;
+using GameLibrary.Services;
 using SB;
 
 namespace GameLibrary.Platform.Game {
 // holds map battle and queue references
 // sets up  and ends the game. runs gameplay skripts
-static class Game {
-    
-    public static void runTurn() {
-        // run algorithm avery battle cycle
-    }
+class Game {
     public static void setUp() {
         loadGraphics("./textures.txt");
         // print instructions
@@ -67,12 +63,17 @@ static class Game {
     public static Queue getQueue() {
         return battle.getQueue();
     }
+
     static List<Screen> screens = new List<Screen>();
     public static Screen getMainScreen() {
         return screens[0];
     }
     public static void setScreen(Screen main) {
         screens.Add(main);
+    }
+
+    public static void printScreen(int screenNum) {
+        screens[screenNum].Printer.updateFrame();
     }
 }
 }
