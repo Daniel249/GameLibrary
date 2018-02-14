@@ -4,25 +4,18 @@ namespace GameLibrary.Graphics.Display {
 static class Terminal {
     // numbers based on testing
     // not in use
-    static int size_x = 240;
-    static int size_y = 72;
-
-    // get set
-    public static int getSize_x() {
-        return size_x;
-    }
-    public static int getSize_y() {
-        return size_y;
-    }
+    public static int Size_x {get; private set;} = 240;
+    public static int Size_y {get; private set;} = 72;
 
     // methods
     // set console size
     public static void setSize() {
-        size_x = Console.LargestWindowWidth;
-        size_y = Console.LargestWindowHeight;
+        // get size dinamically
+        Size_x = Console.LargestWindowWidth;
+        Size_y = Console.LargestWindowHeight;
         // set buffer automatically
-        Console.SetWindowSize(size_x, size_y);
-        Console.SetBufferSize(size_x, size_y);
+        Console.SetWindowSize(Size_x, Size_y);
+        Console.SetBufferSize(Size_x, Size_y);
 
         Console.Clear();
         Console.CursorVisible = false;
@@ -40,7 +33,7 @@ static class Terminal {
     }
     // print with defult colors
     public static void PrintString(string str, int pos_x, int pos_y) {
-        PrintString(str, pos_x, pos_y, bcolor, fcolor);
+        PrintString(str, pos_x, pos_y, DefaultBackColor, DefaultForeColor);
     }
 
 
@@ -54,15 +47,7 @@ static class Terminal {
 
 
     // default console colors
-    const ConsoleColor bcolor = ConsoleColor.Black;
-    const ConsoleColor fcolor = ConsoleColor.White;
-    
-    // get set
-    public static ConsoleColor getDefaultBack() {
-        return bcolor;
-    }
-    public static ConsoleColor getDefaultFore() {
-        return fcolor;
-    }
+    public const ConsoleColor DefaultBackColor = ConsoleColor.Black;
+    public const ConsoleColor DefaultForeColor = ConsoleColor.White;
 }
 }

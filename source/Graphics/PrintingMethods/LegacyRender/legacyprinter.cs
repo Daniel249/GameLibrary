@@ -13,7 +13,7 @@ class LegacyPrinter : Printer{
         printdelete(entity, false);
     }
     public override void updateFrame() {
-        
+
     }
     public static void partialDelete(Entity entity, int speed_x, int speed_y) {
 
@@ -33,30 +33,30 @@ class LegacyPrinter : Printer{
         // print defines action to either print or delete on console and reference map
         if(print) {
             reference = entity;
-            bcolor = entity.getTexture().getBackgroundColor();
-            fcolor = entity.getTexture().getForegroundColor();
+            bcolor = entity.Texture.BackgroundColor;
+            fcolor = entity.Texture.ForegroundColor;
         } else {
             reference = null;
-            bcolor = Terminal.getDefaultBack();
-            fcolor = Terminal.getDefaultFore();
+            bcolor = Terminal.DefaultBackColor;
+            fcolor = Terminal.DefaultForeColor;
         }
 
         // other values and references
-        int pos_x = entity.Location_x;
-        int pos_y = entity.Location_y;
-        int map_x = Game.getMap().getSize_x();
-        int map_y = Game.getMap().getSize_y();
-        int console_x = pos_x + Game.getMap().getLocation_x();
-        int console_y = pos_y + Game.getMap().getLocation_y();
-        Texture texture = entity.getTexture();
+        int pos_x = entity.Position_x;
+        int pos_y = entity.Position_y;
+        int map_x = Game.getMap().Size_x;
+        int map_y = Game.getMap().Size_y;
+        int console_x = pos_x + Game.getMap().Position_x;
+        int console_y = pos_y + Game.getMap().Position_y;
+        Texture texture = entity.Texture;
 
         // loop and limit start as values for a normal for-loop,
         // equal to 0 and max value respectively.
         // they change based on offset to only print code inside map
         int loop_x = 0;
         int loop_y = 0;
-        int limit_x = entity.getTexture().GetLength(true);
-        int limit_y = entity.getTexture().GetLength(false);
+        int limit_x = entity.Texture.GetLength(true);
+        int limit_y = entity.Texture.GetLength(false);
 
         // calc offset
         // apply it directly
@@ -68,20 +68,20 @@ class LegacyPrinter : Printer{
         for(int y = loop_y; y < limit_y; y++) {
         // print each line to console on outter loop
             // both x and y locations are based off of current loop_x/y. but loop_x stays 0
-            int printLocation_x = console_x + loop_x;
-            int printLocation_y = console_y + y /* current loop_y */;
+            int printPosition_x = console_x + loop_x;
+            int printPosition_y = console_y + y /* current loop_y */;
 
             string printLine;
             if(print) {
-                printLine = getPrintable(entity.getTexture().getCode(y), loop_x, limit_x);
+                printLine = getPrintable(entity.Texture.getCode(y), loop_x, limit_x);
             } else {
                 printLine = new string(new char[limit_x - loop_x]);
             }
-            Terminal.PrintString(printLine, printLocation_x, printLocation_y, bcolor, fcolor);
+            Terminal.PrintString(printLine, printPosition_x, printPosition_y, bcolor, fcolor);
             if(entity is Unit) {
                 // checks until custom length, because of shorter arrays
-                for(int x = loop_x; x < entity.getTexture().getCode(y).Length; x++) {
-                    char code = entity.getTexture().getCode(y,x);
+                for(int x = loop_x; x < entity.Texture.getCode(y).Length; x++) {
+                    char code = entity.Texture.getCode(y,x);
                     if(code != '\0' && code != ' ') {
                         Game.getMap().setMap((Entity)reference, pos_x + x, pos_y + y);
                     }
@@ -104,15 +104,15 @@ class LegacyPrinter : Printer{
 
     // cut parts of code[,] which are out of map
     // offset<0 => out of map to the left
-    void calcOffset(int mapSize, int entityLocation, 
+    void calcOffset(int mapSize, int entityPosition, 
         ref int entitySize, out int loopStart) {
         loopStart = 0;
         
         int offset = 0;
-        int outBound = entityLocation + entitySize - mapSize;
+        int outBound = entityPosition + entitySize - mapSize;
         // calc offset
-        if(entityLocation < 0){
-            offset = entityLocation;
+        if(entityPosition < 0){
+            offset = entityPosition;
         } else if(outBound > 0) {
             offset = outBound;
         }

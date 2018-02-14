@@ -3,22 +3,9 @@ using System;
 namespace GameLibrary.Graphics {
 public class Texture {
     // color
-    ConsoleColor ForegroundColor;
-    ConsoleColor BackgroundColor;
+    public ConsoleColor ForegroundColor {get; set;}
+    public ConsoleColor BackgroundColor {get; set;}
 
-    // get set
-    public ConsoleColor getBackgroundColor() {
-        return BackgroundColor;
-    }
-    public ConsoleColor getForegroundColor() {
-        return ForegroundColor;
-    } 
-    public void setBackgroundColor(ConsoleColor _backgroundColor) {
-        BackgroundColor = _backgroundColor;
-    }
-    public void setForegroundColor(ConsoleColor _foregroundColor) {
-        ForegroundColor = _foregroundColor;
-    }
 
 
     // ascii code
