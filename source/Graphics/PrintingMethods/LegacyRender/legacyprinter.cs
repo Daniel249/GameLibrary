@@ -1,30 +1,29 @@
 using System;
 using System.Linq;
 
-using SB.Assets;
 using SB.Objects;
 using GameLibrary.Platform.Game;
 using GameLibrary.Graphics.Display;
 
-namespace GameLibrary.Graphics.LegacyRender {
-public class Printer {
+namespace GameLibrary.Graphics {
+class LegacyPrinter : Printer{
     // print and delete methods
     // both use printdelete targeted at certain point to print either a char o a space
-    public static void deleteEntity(Entity entity) {
+    public override void delete(IPrintable entity) {
         printdelete(entity, false);
     }
     public static void partialDelete(Entity entity, int speed_x, int speed_y) {
 
     }
-    public static void printEntity(Entity entity) {
+    public override void print(IPrintable entity) {
         printdelete(entity, true);
     }
 
     // main print method
-    static void printdelete(Entity entity, bool print) {
+    void printdelete(IPrintable entity, bool print) {
         // defines reference and colors to print
         // color and reference
-        Entity reference;
+        IPrintable reference;
         ConsoleColor bcolor;
         ConsoleColor fcolor;
 
@@ -81,7 +80,7 @@ public class Printer {
                 for(int x = loop_x; x < entity.getTexture().getCode(y).Length; x++) {
                     char code = entity.getTexture().getCode(y,x);
                     if(code != '\0' && code != ' ') {
-                        Game.getMap().setMap(reference, pos_x + x, pos_y + y);
+                        Game.getMap().setMap((Entity)reference, pos_x + x, pos_y + y);
                     }
                 }
             }
@@ -89,7 +88,7 @@ public class Printer {
         }
     }
 
-    static string getPrintable(char[] material, int start, int limit) {
+    string getPrintable(char[] material, int start, int limit) {
         // if not out of map. return as is
         if(start == 0 && limit >= material.Length) {
             return new string(material);
@@ -102,7 +101,7 @@ public class Printer {
 
     // cut parts of code[,] which are out of map
     // offset<0 => out of map to the left
-    static void calcOffset(int mapSize, int entityLocation, 
+    void calcOffset(int mapSize, int entityLocation, 
         ref int entitySize, out int loopStart) {
         loopStart = 0;
         

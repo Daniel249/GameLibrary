@@ -1,14 +1,16 @@
 using System;
-using GameLibrary;
-using GameLibrary.Externals.Reader;
+using System.Collections.Generic;
+
 using GameLibrary.Graphics.Display;
+using GameLibrary.Externals.Reader;
+using GameLibrary.Graphics;
 using GameLibrary.Services.Chronometrics;
 using SB;
 
 namespace GameLibrary.Platform.Game {
 // holds map battle and queue references
 // sets up  and ends the game. runs gameplay skripts
-public static class Game {
+static class Game {
     
     public static void runTurn() {
         // run algorithm avery battle cycle
@@ -64,6 +66,13 @@ public static class Game {
     }
     public static Queue getQueue() {
         return battle.getQueue();
+    }
+    static List<Screen> screens = new List<Screen>();
+    public static Screen getMainScreen() {
+        return screens[0];
+    }
+    public static void setScreen(Screen main) {
+        screens.Add(main);
     }
 }
 }

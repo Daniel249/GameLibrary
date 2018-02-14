@@ -1,5 +1,5 @@
 using System;
-using GameLibrary.Graphics.Render;
+using GameLibrary.Graphics;
 namespace GameLibrary.Graphics.Display {
 static class Terminal {
     // numbers based on testing
