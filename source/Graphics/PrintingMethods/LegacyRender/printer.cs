@@ -1,12 +1,12 @@
 using System;
 using System.Linq;
 
-using SB;
+using SB.Assets;
 using SB.Objects;
 using GameLibrary.Platform.Game;
 using GameLibrary.Graphics.Display;
 
-namespace GameLibrary.Graphics.Render {
+namespace GameLibrary.Graphics.LegacyRender {
 public class Printer {
     // print and delete methods
     // both use printdelete targeted at certain point to print either a char o a space
@@ -129,10 +129,10 @@ public class Printer {
 
     }
     public static void printTo(int pos_x, int pos_y, string code, ConsoleColor fcolor, ConsoleColor bcolor) {
-        Printer.PrintText(code, pos_x, pos_y, bcolor);
+        PrintText(code, pos_x, pos_y, bcolor);
     }
     public static void eraseFrom(int pos_x, int pos_y, ConsoleColor bcolor) {
-        Printer.PrintText(" ", pos_x, pos_y, bcolor);
+        PrintText(" ", pos_x, pos_y, bcolor);
     }
 }
 }
