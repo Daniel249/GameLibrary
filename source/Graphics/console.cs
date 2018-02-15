@@ -4,8 +4,8 @@ namespace GameLibrary.Graphics.Display {
 static class Terminal {
     // numbers based on testing
     // not in use
-    public static int Size_x {get; private set;} = 240;
-    public static int Size_y {get; private set;} = 72;
+    public static int Size_x {get; private set;} //= 240;
+    public static int Size_y {get; private set;} //= 72;
 
     // methods
     // set console size
