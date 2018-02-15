@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 
 using SB.Objects;
-using GameLibrary.Platform.Game;
+using GameLibrary.Platform;
 using GameLibrary.Graphics.Display;
 
 namespace GameLibrary.Graphics {
@@ -59,7 +59,7 @@ class LegacyPrinter : Printer{
         int limit_y = entity.Texture.GetLength(false);
 
         // calc offset
-        // apply it directly
+        // limit and loop both as input and outputs
         calcOffset(map_x, pos_x, ref limit_x, out loop_x);
         calcOffset(map_y, pos_y, ref limit_y, out loop_y);
 

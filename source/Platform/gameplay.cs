@@ -7,7 +7,7 @@ using GameLibrary.Graphics;
 using GameLibrary.Services;
 using SB;
 
-namespace GameLibrary.Platform.Game {
+namespace GameLibrary.Platform {
 // holds map battle and queue references
 // sets up  and ends the game. runs gameplay skripts
 class Game {

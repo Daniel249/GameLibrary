@@ -1,4 +1,4 @@
-using GameLibrary.Platform.Game;
+using GameLibrary.Platform;
 
 namespace GameLibrary.Services.Chronometrics {
 
