@@ -6,24 +6,24 @@ using GameLibrary.Platform;
 using GameLibrary.Graphics.Display;
 
 namespace GameLibrary.Graphics {
-class LegacyPrinter : Printer{
+class LegacyPrinter : Printer {
     // print and delete methods
     // both use printdelete targeted at certain point to print either a char o a space
-    public override void delete(IPrintable entity) {
-        printdelete(entity, false);
+    public override void delete(IPrintable entity, Screen screen) {
+        printdelete(entity, screen, false);
     }
-    public override void updateFrame() {
+    public override void updateFrame(Screen screen) {
 
     }
     public static void partialDelete(Entity entity, int speed_x, int speed_y) {
 
     }
-    public override void print(IPrintable entity) {
-        printdelete(entity, true);
+    public override void print(IPrintable entity, Screen screen) {
+        printdelete(entity, screen, true);
     }
 
     // main print method
-    void printdelete(IPrintable entity, bool print) {
+    void printdelete(IPrintable entity, Screen screen, bool print) {
         // defines reference and colors to print
         // color and reference
         IPrintable reference;

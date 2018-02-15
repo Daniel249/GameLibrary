@@ -9,6 +9,6 @@ namespace GameLibrary.Interface.Elements {
 // updated through events
 interface IElement : IPrintable {
 
-}
 
+}
 }

@@ -8,6 +8,7 @@ namespace GameLibrary.Interface.Elements {
 class InterfaceElement : IElement {
     public int Position_x {get; set;}
     public int Position_y {get; set;}
+    public Screen Screen {get; }
     public Texture Texture {get; private set;}
 
     // constructor 

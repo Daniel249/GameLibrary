@@ -1,15 +1,17 @@
 using GameLibrary.Graphics;
 
 namespace GameLibrary.Graphics {
-class Screen {
-    readonly Printer printer;
-    public Printer Printer {
-        get { return printer;}
+public class Screen {
+    public readonly Printer Printer;
+    public readonly Frame Frame;
+    public void updateFrame() {
+        Printer.updateFrame(this);
     }
+
 
     // constructor 
     public Screen(Printer assignedPrinter) {
-        printer = assignedPrinter;
+        Printer = assignedPrinter;
     }
 }
 

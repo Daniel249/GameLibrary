@@ -68,12 +68,14 @@ class Game {
     public static Screen getMainScreen() {
         return screens[0];
     }
-    public static void setScreen(Screen main) {
-        screens.Add(main);
+    public static void setScreen(Screen screen) {
+        screens.Add(screen);
     }
 
+    // print screen
     public static void printScreen(int screenNum) {
-        screens[screenNum].Printer.updateFrame();
+        Screen screen = screens[screenNum];
+        screen.Printer.updateFrame(screen);
     }
 }
 }
