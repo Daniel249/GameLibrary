@@ -6,8 +6,8 @@ namespace GameLibrary.Platform {
 // maybe other properties 
 interface IPlayable {
     void run();
+    void turn();
+    void endGame();
 
 }
-
-
 }

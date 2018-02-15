@@ -4,7 +4,7 @@ namespace GameLibrary.Services {
 // initializes a rectangular jagged array
 // takes type and 2 dimensions
 static class MapInitializer {
-    public static T[][] CreateArray<T>(int  rows, int cols) {
+    public static T[][] CreateArray<T>(int cols, int rows) {
         T[][] rectArray = new T[rows][];
 
         for(int i = 0; i < rectArray.GetLength(0); i++) {
