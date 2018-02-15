@@ -77,7 +77,9 @@ class LegacyPrinter : Printer{
             } else {
                 printLine = new string(new char[limit_x - loop_x]);
             }
+
             Terminal.PrintString(printLine, printPosition_x, printPosition_y, bcolor, fcolor);
+
             if(entity is Unit) {
                 // checks until custom length, because of shorter arrays
                 for(int x = loop_x; x < entity.Texture.getCode(y).Length; x++) {
@@ -87,19 +89,20 @@ class LegacyPrinter : Printer{
                     }
                 }
             }
-        
         }
+
     }
 
     string getPrintable(char[] material, int start, int limit) {
         // if not out of map. return as is
         if(start == 0 && limit >= material.Length) {
             return new string(material);
+        } else {
+            // else make array of right size and copy printable range to it
+            char[] toPrint = new char[limit - start];
+            Array.Copy(material, start, toPrint, 0, limit);
+            return new string(toPrint);
         }
-        // else make array of right size and copy printable range to it
-        char[] toPrint = new char[limit - start];
-        Array.Copy(material, start, toPrint, 0, limit);
-        return new string(toPrint);
     }
 
     // cut parts of code[,] which are out of map
@@ -126,6 +129,8 @@ class LegacyPrinter : Printer{
     }
 
 
+    // not in use
+    
     // print and erase
     public static void PrintText(string msg, int pos_x, int pos_y, ConsoleColor bcolor) {
 
