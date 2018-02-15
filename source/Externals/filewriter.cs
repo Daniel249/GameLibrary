@@ -1,8 +1,11 @@
 
 
 namespace GameLibrary.Externals.Writer {
-    // writes to a text file
+    
+// writes to a text file
 class Filewriter {
+
+
 
 }
 }

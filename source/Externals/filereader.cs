@@ -34,6 +34,7 @@ class Filereader {
         // char dimension_y equals to list length
         int dimension_y = stringList.Count;
         char[][] newCode = new char[dimension_y][/*dimension_x*/];
+
         // set references in char[][]
         for (int y = 0; y < dimension_y; y++) {
             newCode[y] = stringList[y].ToCharArray(); 
@@ -42,8 +43,10 @@ class Filereader {
     }
 
 
-    // reads and then processes text file. output is saved in rawTextures dictionary
+    // reads and then processes text file
+    // output is saved in rawTextures dictionary
     public void processFileData() {
+
         // initialize dictionary
         rawTextures = new Dictionary<string, List<string>>();
         weaponLocation = new Dictionary<string, List<int>>();
@@ -52,13 +55,16 @@ class Filereader {
         if(textureFile == null) {
             return;
         }
+        
         // buffers
         string actualName = null;
         int actualWeapon = 0;
+
         // list of buffers to be eventually be saved in dictionary
         List<string> loadingTexture = new List<string>();
         List<int> loadingWeaponLocation = new List<int>();
 
+        // for each line of text file
         for (int i = 0; i < textureFile.Length; i++) {
             string actual = textureFile[i];
             // if texture name
@@ -77,7 +83,7 @@ class Filereader {
                             // TODO communicate to user
                         }
                     }
-                    // always reset
+                    // always reset buffers
                     loadingTexture = new List<string>();
                     loadingWeaponLocation = new List<int>();
                 }
@@ -99,6 +105,7 @@ class Filereader {
             }
         }
     }
+
     // checks for weapon mark in row
     bool processRow(ref string row) {
         if(row.Contains("W")) {
@@ -120,12 +127,15 @@ class Filereader {
         return code;
     }
 
-
+    // constructor
     public Filereader(string address) {
         path = address;
     }
 
+
+
     // not in use
+
     // search in rawTextures. if not found, return null
     public List<string> getRawTexture(string name) {
         List<string> returnString;
