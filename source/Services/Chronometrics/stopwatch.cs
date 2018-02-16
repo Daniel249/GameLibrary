@@ -28,10 +28,9 @@ class Watch : IChronometric{
     Chronometer cronometro;
     public bool tick() {
         if(cronometro.tick()) {
-            Terminal.PrintString(getTime(), Terminal.Size_x - 40, 0, Terminal.DefaultBackColor, Terminal.DefaultForeColor);
+            Terminal.PrintString(getTime(), Terminal.Size_x - 40, 0);
 
-            Terminal.PrintString("health: " + Game.getPlayer().getHealth() + "  ", Terminal.Size_x - 80, 0, 
-                Terminal.DefaultBackColor, Terminal.DefaultForeColor);
+            Terminal.PrintString("health: " + Game.getPlayer().getHealth() + "  ", Terminal.Size_x - 80, 0);
 
             return true;
         } else {
