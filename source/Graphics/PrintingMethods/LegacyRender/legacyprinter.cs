@@ -11,13 +11,13 @@ namespace GameLibrary.Graphics {
 class LegacyPrinter : Printer {
     // print and delete methods
     // both use printdelete targeted at certain point to print either a char o a space
-    public override void delete(IPrintable entity, Screen screen) {
+    public void delete(IPrintable entity, Screen screen) {
         printdelete(entity, screen, false);
     }
-    public override void print(IPrintable entity, Screen screen) {
+    public void print(IPrintable entity, Screen screen) {
         printdelete(entity, screen, true);
     }
-    public override void updateFrame(Screen screen) {
+    public void updateFrame(Screen screen) {
 
     }
 
