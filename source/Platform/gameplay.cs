@@ -75,7 +75,7 @@ class Game {
     // print screen
     public static void printScreen(int screenNum) {
         Screen screen = screens[screenNum];
-        screen.Printer.updateFrame(screen);
+        screen.updateFrame();
     }
 }
 }

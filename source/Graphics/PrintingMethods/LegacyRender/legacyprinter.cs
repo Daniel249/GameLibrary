@@ -6,20 +6,19 @@ using GameLibrary.Platform;
 using GameLibrary.Graphics.Display;
 
 namespace GameLibrary.Graphics {
+// old printing algorithm. there is no frame as buffer
+// takes printable and screen and prints it directly
 class LegacyPrinter : Printer {
     // print and delete methods
     // both use printdelete targeted at certain point to print either a char o a space
     public override void delete(IPrintable entity, Screen screen) {
         printdelete(entity, screen, false);
     }
-    public override void updateFrame(Screen screen) {
-
-    }
-    public static void partialDelete(Entity entity, int speed_x, int speed_y) {
-
-    }
     public override void print(IPrintable entity, Screen screen) {
         printdelete(entity, screen, true);
+    }
+    public override void updateFrame(Screen screen) {
+
     }
 
     // main print method
@@ -48,7 +47,6 @@ class LegacyPrinter : Printer {
         int map_y = Game.getMap().Size_y;
         int console_x = pos_x + Game.getMap().Position_x;
         int console_y = pos_y + Game.getMap().Position_y;
-        Texture texture = entity.Texture;
 
         // loop and limit start as values for a normal for-loop,
         // equal to 0 and max value respectively.
