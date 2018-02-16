@@ -17,6 +17,7 @@ static class Terminal {
         Console.SetWindowSize(Size_x, Size_y);
         Console.SetBufferSize(Size_x, Size_y);
 
+        Console.BackgroundColor = DefaultBackColor;
         Console.Clear();
         Console.CursorVisible = false;
         //Console.SetWindowPosition(0, 0);

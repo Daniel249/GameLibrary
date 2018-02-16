@@ -16,7 +16,7 @@ class Game {
         // print instructions
         Terminal.PrintString(
             "move: up down keys, left key to stop    toggle fire: F    exit: esc", 
-            5, 0, ConsoleColor.Black, ConsoleColor.White
+            5, 0, Terminal.DefaultBackColor, Terminal.DefaultForeColor
         );
     }
 
