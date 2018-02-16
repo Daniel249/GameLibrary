@@ -5,14 +5,14 @@ namespace GameLibrary.Graphics {
 // inherted by GUI elements and Visible objects
 public interface IPrintable {
     // texture
-    Texture Texture {get; }
+    Texture Texture { get; }
 
     // reference to Screen
-    Screen Screen {get; }
+    Screen Screen { get; }
 
     // positiont
-    int Position_x {get; set;}
-    int Position_y {get; set;}
-}
+    int Position_x { get; }
+    int Position_y { get; }
 
+}
 }
