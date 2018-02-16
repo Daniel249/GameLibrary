@@ -3,8 +3,8 @@ using System;
 namespace GameLibrary.Graphics {
 public class Texture {
     // color
-    public ConsoleColor ForegroundColor {get; set;}
-    public ConsoleColor BackgroundColor {get; set;}
+    public ConsoleColor ForegroundColor { get; set; }
+    public ConsoleColor BackgroundColor { get; set; }
 
 
 
