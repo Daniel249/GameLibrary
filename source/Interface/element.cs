@@ -6,10 +6,15 @@ namespace GameLibrary.Interface.Elements {
 // inherits from IElements
 // placed in a GUI with a location and can subscribe to events to update their state
 class InterfaceElement : IElement {
+    // IPrintable implementation
+    // reference to screen
+    public Screen Screen { get; private set; }
+    // Texture
+    public Texture Texture { get; private set; }
+    // position in screen
     public int Position_x { get; set; }
     public int Position_y { get; set; }
-    public Screen Screen { get; private set; }
-    public Texture Texture { get; private set; }
+
 
     // constructor 
     public InterfaceElement(int pos_x, int pos_y) {

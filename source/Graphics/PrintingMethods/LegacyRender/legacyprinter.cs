@@ -98,7 +98,7 @@ class LegacyPrinter : Printer {
         } else {
             // else make array of right size and copy printable range to it
             char[] toPrint = new char[limit - start];
-            Array.Copy(material, start, toPrint, 0, limit);
+            Array.Copy(material, start, toPrint, 0, limit - start);
             return new string(toPrint);
         }
     }

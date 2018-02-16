@@ -29,13 +29,13 @@ public class Texture {
     }
     // for compatibility with 2d char array times
     // horizontal length of texture
-    public int GetLength(int dimension_y) {
-        return code[dimension_y].Length;
+    public int GetLength(int position_y) {
+        return code[position_y].Length;
     }
     int rank_x;
     // return max x length or y length
-    public int GetLength(bool isRank) {
-        if(isRank) {
+    public int GetLength(bool isRank_x) {
+        if(isRank_x) {
             return rank_x;
         } else {
             return code.Length;
@@ -53,7 +53,7 @@ public class Texture {
 
 
     // constructor
-    public Texture(char[][]_code, ConsoleColor bcolor, ConsoleColor fcolor) {
+    public Texture(char[][] _code, ConsoleColor bcolor, ConsoleColor fcolor) {
         code = _code;
         calcRank();
         ForegroundColor = fcolor;
