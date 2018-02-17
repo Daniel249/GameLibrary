@@ -13,7 +13,7 @@ static class Render {
     }
 
     // main render method
-    static void printdelete<T>(IPrintable printable, ISnapshot<T> frame, bool print) {
+    public static void printdelete<T>(IPrintable printable, ISnapshot<T> frame, bool print) {
         // set margins to max
         int loop_x = 0;
         int loop_y = 0;
@@ -45,7 +45,7 @@ static class Render {
                 toPrint, loop_x, frame.state[rowToPrint], printable.Position_x, printLength
             );
             // flag row
-            // frame.flagRow(rowToPrint);
+            frame.flagRow(rowToPrint);
          
         }
     }
@@ -92,7 +92,7 @@ static class Render {
                 toPrint, loop_x, frame.state[rowToPrint], pos_x, printLength
             );
             // flag row
-            // frame.flagRow(rowToPrint);
+            frame.flagRow(rowToPrint);
          
         }
     }
