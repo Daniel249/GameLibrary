@@ -11,18 +11,18 @@ class LegacyPrinter : Printer {
     // Printer implementation
     // print and delete methods
     // both use printdelete targeted at certain point to print either a char o a space
-    public void delete(IPrintable entity, Screen screen) {
-        printdelete(entity, screen, false);
-    }
-    public void print(IPrintable entity, Screen screen) {
-        printdelete(entity, screen, true);
-    }
+    // public void delete(IPrintable entity, Screen screen) {
+    //     printdelete(entity, screen, false);
+    // }
+    // public void print(IPrintable entity, Screen screen) {
+    //     printdelete(entity, screen, true);
+    // }
     public void updateFrame(Screen screen) {
 
     }
 
     // main print method
-    void printdelete(IPrintable entity, Screen screen, bool print) {
+    public static void printdelete(IPrintable entity, Screen screen, bool print) {
         // defines reference and colors to print
         // color and reference
         IPrintable reference;
@@ -64,8 +64,8 @@ class LegacyPrinter : Printer {
         for(int y = loop_y; y < limit_y; y++) {
         // print each line to console on outter loop
             // both x and y locations are based off of current loop_x/y. but loop_x stays 0
-            int printPosition_x = pos_x + Game.getMap().Position_x + loop_x;
-            int printPosition_y = pos_y + Game.getMap().Position_y + y /* current loop_y */;
+            int printPosition_x = pos_x + screen.Position_x + loop_x;
+            int printPosition_y = pos_y + screen.Position_y + y /* current loop_y */;
 
             string printLine;
             if(print) {
