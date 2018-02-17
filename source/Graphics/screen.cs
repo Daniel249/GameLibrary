@@ -7,8 +7,12 @@ public class Screen {
     public int Position_y { get; private set; }
 
     // printer and frame references
-    public Frame FrameBuffer { get; private set; }
     private Printer Printer { get; set; }
+    public Frame FrameBuffer { get; private set; }
+
+    // screen size. matches frame 
+    public int Size_x { get; private set; }
+    public int Size_y { get; private set; }
 
 
     // methods
@@ -30,6 +34,8 @@ public class Screen {
     public Screen(int size_x, int size_y, Printer assignedPrinter) {
         Position_x = 0;
         Position_y = 0;
+        Size_x = size_x;
+        Size_y = size_y;
         FrameBuffer = new Frame(size_x, size_y);
         Printer = assignedPrinter;
     }

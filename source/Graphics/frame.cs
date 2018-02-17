@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using GameLibrary.Services;
 
@@ -16,14 +17,14 @@ public class Frame {
             return Snapshot.Length;
         }
     }
-    // public void renderInFrame() {
-    //     Array.Copy(
-    //         source: printable.Texture.getCode(i), index: 0; 
-    //     )
-    // }
-    List<int> flaggedRows;
+
+    public List<int> flaggedRows { get; private set; }
+
+    // add if not already in list
     public void flagRow(int rowNum) {
-        flaggedRows.Add(rowNum);
+        if(!flaggedRows.Contains(rowNum)) {
+            flaggedRows.Add(rowNum);
+        }
     }
 
     public Frame(int size_x, int size_y) {
