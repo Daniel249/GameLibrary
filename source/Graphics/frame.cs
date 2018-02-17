@@ -7,16 +7,15 @@ namespace GameLibrary.Graphics {
 // gets passed to be printed
 
 // frame building logic either here or in a frame builder
-public class Frame {
+public class Frame : ISnapshot<char> {
 
-    public readonly char[][] Snapshot;
-    public int GetLength(bool isRank_x) {
-        if(isRank_x) {
-            return Snapshot[0].Length;
-        } else {
-            return Snapshot.Length;
-        }
-    }
+    // ISnapshot implementation
+
+    public char[][] state { get; private set; }
+
+    public int Size_x { get; private set; }
+    public int Size_y { get; private set; }
+
 
     public List<int> flaggedRows { get; private set; }
 
@@ -28,7 +27,9 @@ public class Frame {
     }
 
     public Frame(int size_x, int size_y) {
-        Snapshot = MapInitializer.CreateArray<char>(size_x, size_y);
+        Size_x = size_x;
+        Size_y = size_y;
+        state = TextureInitializer.CreateArray<char>(size_x, size_y);
         flaggedRows = new List<int>();
     }
 }
