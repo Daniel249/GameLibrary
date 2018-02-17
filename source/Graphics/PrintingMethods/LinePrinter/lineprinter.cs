@@ -20,9 +20,10 @@ class LinePrinter : Printer {
     // print frame to console
     public void updateFrame(Screen screen) {
         for(int i = 0; i < screen.FrameBuffer.flaggedRows.Count; i++) {
-            string printLine = new string(screen.FrameBuffer.Snapshot[i]);
+            int currentLine = screen.FrameBuffer.flaggedRows[i];
+            string printLine = new string(screen.FrameBuffer.Snapshot[currentLine]);
             // print with default colors
-            Terminal.PrintString(printLine, screen.Position_x, screen.Position_y + screen.FrameBuffer.flaggedRows[i]);
+            Terminal.PrintString(printLine, screen.Position_x, screen.Position_y + currentLine);
         }
         screen.FrameBuffer.flaggedRows.Clear();
     }
