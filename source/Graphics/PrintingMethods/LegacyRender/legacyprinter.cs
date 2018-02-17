@@ -56,8 +56,8 @@ class LegacyPrinter : Printer {
 
         // calc offset
         // limit and loop both as input and outputs
-        Render.calcOffset(Game.getMap().Size_x, pos_x, ref limit_x, out loop_x);
-        Render.calcOffset(Game.getMap().Size_y, pos_y, ref limit_y, out loop_y);
+        Render.calcOffset(map_x, pos_x, ref limit_x, out loop_x);
+        Render.calcOffset(map_y, pos_y, ref limit_y, out loop_y);
 
         
         // loop from loop_x to limit. changes based on offset 
