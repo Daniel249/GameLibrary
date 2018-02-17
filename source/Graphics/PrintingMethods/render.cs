@@ -35,21 +35,23 @@ static class Render {
             if(!print) {
                 toPrint = new char[printLength];
             }
+            // row to print. based on printable location
+            int rowToPrint = printable.Position_y + y;
             // copy texture to frame
             Array.Copy (
-                toPrint, loop_x, frame.Snapshot[y], printable.Position_x, printLength
+                toPrint, loop_x, frame.Snapshot[rowToPrint], printable.Position_x, printLength
             );
             // flag row
-            frame.flagRow(y);
+            frame.flagRow(rowToPrint);
          
         }
     }
 
     // helpers 
-    
+
     // cut parts of code[,] which are out of map
     // offset<0 => out of map to the left
-    static void calcOffset(int mapSize, int entityPosition, 
+    public static void calcOffset(int mapSize, int entityPosition, 
         ref int entitySize, out int loopStart) {
         loopStart = 0;
         
@@ -67,6 +69,19 @@ static class Render {
             loopStart = (-1)*offset;
         } else if(offset > 0) {
             entitySize -= offset;
+        }
+    }
+
+
+    public static string getPrintable(char[] material, int start, int limit) {
+        // if not out of map. return as is
+        if(start == 0 && limit >= material.Length) {
+            return new string(material);
+        } else {
+            // else make array of right size and copy printable range to it
+            char[] toPrint = new char[limit - start];
+            Array.Copy(material, start, toPrint, 0, limit - start);
+            return new string(toPrint);
         }
     }
 }

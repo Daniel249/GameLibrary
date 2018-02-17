@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 
 using SB.Objects;
 using GameLibrary.Platform;
@@ -9,6 +8,7 @@ namespace GameLibrary.Graphics {
 // old printing algorithm. there is no frame as buffer
 // takes printable and screen and prints it directly
 class LegacyPrinter : Printer {
+    // Printer implementation
     // print and delete methods
     // both use printdelete targeted at certain point to print either a char o a space
     public void delete(IPrintable entity, Screen screen) {
@@ -45,8 +45,6 @@ class LegacyPrinter : Printer {
         int pos_y = entity.Position_y;
         int map_x = Game.getMap().Size_x;
         int map_y = Game.getMap().Size_y;
-        int console_x = pos_x + Game.getMap().Position_x;
-        int console_y = pos_y + Game.getMap().Position_y;
 
         // loop and limit start as values for a normal for-loop,
         // equal to 0 and max value respectively.
@@ -58,20 +56,20 @@ class LegacyPrinter : Printer {
 
         // calc offset
         // limit and loop both as input and outputs
-        calcOffset(map_x, pos_x, ref limit_x, out loop_x);
-        calcOffset(map_y, pos_y, ref limit_y, out loop_y);
+        Render.calcOffset(Game.getMap().Size_x, pos_x, ref limit_x, out loop_x);
+        Render.calcOffset(Game.getMap().Size_y, pos_y, ref limit_y, out loop_y);
 
         
         // loop from loop_x to limit. changes based on offset 
         for(int y = loop_y; y < limit_y; y++) {
         // print each line to console on outter loop
             // both x and y locations are based off of current loop_x/y. but loop_x stays 0
-            int printPosition_x = console_x + loop_x;
-            int printPosition_y = console_y + y /* current loop_y */;
+            int printPosition_x = pos_x + Game.getMap().Position_x + loop_x;
+            int printPosition_y = pos_y + Game.getMap().Position_y + y /* current loop_y */;
 
             string printLine;
             if(print) {
-                printLine = getPrintable(entity.Texture.getCode(y), loop_x, limit_x);
+                printLine = Render.getPrintable(entity.Texture.getCode(y), loop_x, limit_x);
             } else {
                 printLine = new string(new char[limit_x - loop_x]);
             }
@@ -91,40 +89,8 @@ class LegacyPrinter : Printer {
 
     }
 
-    string getPrintable(char[] material, int start, int limit) {
-        // if not out of map. return as is
-        if(start == 0 && limit >= material.Length) {
-            return new string(material);
-        } else {
-            // else make array of right size and copy printable range to it
-            char[] toPrint = new char[limit - start];
-            Array.Copy(material, start, toPrint, 0, limit - start);
-            return new string(toPrint);
-        }
-    }
 
-    // cut parts of code[,] which are out of map
-    // offset<0 => out of map to the left
-    void calcOffset(int mapSize, int entityPosition, 
-        ref int entitySize, out int loopStart) {
-        loopStart = 0;
-        
-        int offset = 0;
-        int outBound = entityPosition + entitySize - mapSize;
-        // calc offset
-        if(entityPosition < 0){
-            offset = entityPosition;
-        } else if(outBound > 0) {
-            offset = outBound;
-        }
 
-        // offset applied to loop and limit
-        if(offset < 0) {
-            loopStart = (-1)*offset;
-        } else if(offset > 0) {
-            entitySize -= offset;
-        }
-    }
 
 
     // not in use
