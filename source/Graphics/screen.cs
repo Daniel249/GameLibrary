@@ -21,24 +21,28 @@ public class Screen {
         Printer.updateFrame(this);
     }
 
-    // render printable in frame
-    public void delete(IPrintable printable) {
-        Printer.delete(printable, this);
-    }
-    public void print(IPrintable printable) {
-        Printer.print(printable, this);
-    }
-
-
     // constructor 
     public Screen(int size_x, int size_y, Printer assignedPrinter) {
-        Position_x = 0;
-        Position_y = 0;
+        Position_x = 5;
+        Position_y = 5;
         Size_x = size_x;
         Size_y = size_y;
         FrameBuffer = new Frame(size_x, size_y);
         Printer = assignedPrinter;
     }
+
+
+    // not in use
+
+    // render printable in frame
+    // public void delete(IPrintable printable) {
+    //     Printer.delete(printable, this);
+    // }
+    // public void print(IPrintable printable) {
+    //     Printer.print(printable, this);
+    // }
+
+
 }
 
 }

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 using GameLibrary.Graphics;
-using GameLibrary.Interface.Elements;
+using GameLibrary.Interface;
 
 namespace GameLibrary.Interface {
 // contains ui elements and organizes their printing 
@@ -12,9 +12,9 @@ namespace GameLibrary.Interface {
 // both are either instances or inherit from GUInterface
 // 
 // has a frame and compares it to last to know what to print to screen frame 
-class GUInterface {
+public class GUInterface {
     // reference to screen
-    Screen Screen;
+    protected Screen Screen { get; private set; }
     // its own frame
     Frame Frame;
     // reference to UI Elements
@@ -31,10 +31,17 @@ class GUInterface {
     public virtual void delete(IPrintable printable) {
         Render.delete(printable, Frame);
     }
+
+    // TODO print only flagged and flag on screen
     public virtual void updateFrame() {
-        for(int y = 0; y < Frame.Size_y; y++) {
+        // loop through flagged in gui
+        for(int y = 0; y < Frame.flaggedRows.Count; y++) {
+            int row = Frame.flaggedRows[y];
+            // try add flagged to screen flags
+            Screen.FrameBuffer.flagRow(row);
+            // copy to screen frame
             Array.Copy (
-                Frame.state[y], 0, Screen.FrameBuffer.state[Position_y + y],
+                Frame.state[row], 0, Screen.FrameBuffer.state[Position_y + row],
                 Position_x, Frame.Size_x
             );
         }
