@@ -1,7 +1,7 @@
 
 using GameLibrary.Graphics;
 
-namespace GameLibrary.Interface.Elements {
+namespace GameLibrary.Interface {
 // inherits from IPrintable
 //
 // inherited by interface elements
@@ -9,6 +9,7 @@ namespace GameLibrary.Interface.Elements {
 // updated through events
 interface IElement : IPrintable {
 
+    GUInterface GUInterface { get; }
 
 }
 }
