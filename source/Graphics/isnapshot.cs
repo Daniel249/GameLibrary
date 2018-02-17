@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 
 namespace GameLibrary.Graphics {
 
@@ -10,5 +11,8 @@ interface ISnapshot<T> {
     // the array
     T[][] state { get; }
 
+    // flagged as changed
+    List<int> flaggedRows { get; }
+    void flagRow(int num);
 }
 }
