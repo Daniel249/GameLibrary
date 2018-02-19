@@ -1,7 +1,7 @@
 
 
 namespace GameLibrary.Graphics {
-public class Screen {
+class Screen {
     // position in console
     public int Position_x { get; private set; }
     public int Position_y { get; private set; }

@@ -1,7 +1,7 @@
 using System;
 
 namespace GameLibrary.Graphics {
-public interface Printer {
+interface Printer {
     // legacy render inherits printer but it's the exception in the implementation
     // there is no updateFrame
     // instead print and delete affect the console directly

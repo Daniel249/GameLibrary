@@ -6,6 +6,7 @@ using GameLibrary.Services.Chronometrics;
 using GameLibrary.Graphics.Display;
 // access player health to print
 using GameLibrary.Platform;
+using SB;
 
 namespace GameLibrary.Interface {
 class Watch : IChronometric{
@@ -30,7 +31,7 @@ class Watch : IChronometric{
         if(cronometro.tick()) {
             Terminal.PrintString(getTime(), Terminal.Size_x - 40, 0);
 
-            Terminal.PrintString("health: " + Game.getPlayer().getHealth() + "  ", Terminal.Size_x - 80, 0);
+            Terminal.PrintString("health: " + SBGame.getPlayer().getHealth() + "  ", Terminal.Size_x - 80, 0);
 
             return true;
         } else {

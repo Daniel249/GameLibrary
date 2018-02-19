@@ -12,7 +12,7 @@ namespace GameLibrary.Interface {
 // both are either instances or inherit from GUInterface
 // 
 // has a frame and compares it to last to know what to print to screen frame 
-public class GUInterface {
+class GUInterface {
     // reference to screen
     protected Screen Screen { get; private set; }
     // its own frame

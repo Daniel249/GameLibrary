@@ -3,6 +3,7 @@ using System;
 using SB.Objects;
 using GameLibrary.Platform;
 using GameLibrary.Graphics.Display;
+using SB;
 
 namespace GameLibrary.Graphics {
 // old printing algorithm. there is no frame as buffer
@@ -36,8 +37,8 @@ class LegacyPrinter : Printer {
         // other values and references
         int pos_x = entity.Position_x;
         int pos_y = entity.Position_y;
-        int map_x = Game.getMap().Size_x;
-        int map_y = Game.getMap().Size_y;
+        int map_x = SBGame.getMap().Size_x;
+        int map_y = SBGame.getMap().Size_y;
 
         // loop and limit start as values for a normal for-loop,
         // equal to 0 and max value respectively.
@@ -74,7 +75,7 @@ class LegacyPrinter : Printer {
                 for(int x = loop_x; x < entity.Texture.getCode(y).Length; x++) {
                     char code = entity.Texture.getCode(y,x);
                     if(code != '\0' && code != ' ') {
-                        Game.getMap().setMap((Entity)reference, pos_x + x, pos_y + y);
+                        SBGame.getMap().setMap((Entity)reference, pos_x + x, pos_y + y);
                     }
                 }
             }

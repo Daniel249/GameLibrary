@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using GameLibrary.Graphics.Display;
 using SB;
 
-namespace GameLibrary.Externals.Reader {
+namespace GameLibrary.Externals {
 class Filereader {
     // path to file 
     readonly string path = "./textures.txt";

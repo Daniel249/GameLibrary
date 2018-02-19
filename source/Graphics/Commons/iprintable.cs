@@ -7,7 +7,7 @@ public interface IPrintable {
     // texture
     Texture Texture { get; }
 
-    // positiont
+    // position
     int Position_x { get; }
     int Position_y { get; }
 
