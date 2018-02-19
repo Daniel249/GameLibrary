@@ -1,7 +1,7 @@
 using System;
 
 namespace GameLibrary.Graphics {
-class Pixel {
+struct Pixel {
 
     // character
     public char Char { get; set; }

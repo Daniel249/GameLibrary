@@ -13,7 +13,7 @@ static class Terminal {
         // get size dinamically
         Size_x = Console.LargestWindowWidth;
         Size_y = Console.LargestWindowHeight;
-        // set buffer automatically
+        // set 
         Console.SetWindowSize(Size_x, Size_y);
         Console.SetBufferSize(Size_x, Size_y);
 

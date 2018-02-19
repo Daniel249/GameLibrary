@@ -9,14 +9,7 @@ namespace GameLibrary.Graphics {
 // takes printable and screen and prints it directly
 class LegacyPrinter : Printer {
     // Printer implementation
-    // print and delete methods
-    // both use printdelete targeted at certain point to print either a char o a space
-    // public void delete(IPrintable entity, Screen screen) {
-    //     printdelete(entity, screen, false);
-    // }
-    // public void print(IPrintable entity, Screen screen) {
-    //     printdelete(entity, screen, true);
-    // }
+    // already print in legacyinterface
     public void updateFrame(Screen screen) {
 
     }
@@ -88,7 +81,6 @@ class LegacyPrinter : Printer {
         }
 
     }
-
 
 
 
