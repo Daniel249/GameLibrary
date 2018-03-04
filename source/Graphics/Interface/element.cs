@@ -5,7 +5,7 @@ namespace GameLibrary.Interface.Elements {
 // GUI elements
 // inherits from IElements
 // placed in a GUI with a location and can subscribe to events to update their state
-class InterfaceElement : IElement {
+class InterfaceElement : IElement{
     // IPrintable implementation
     // reference to screen
     public GUInterface GUInterface { get; private set; }
