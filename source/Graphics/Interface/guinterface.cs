@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 
-using GameLibrary.Graphics;
-using GameLibrary.Interface;
 
-namespace GameLibrary.Interface {
+namespace GameLibrary.Graphics {
 // contains ui elements and organizes their printing 
 //
 // info to the user is displayed through GUInterfaces

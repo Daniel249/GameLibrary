@@ -1,7 +1,5 @@
 
-using GameLibrary.Graphics;
-
-namespace GameLibrary.Interface {
+namespace GameLibrary.Graphics {
 // inherits from IPrintable
 //
 // inherited by interface elements

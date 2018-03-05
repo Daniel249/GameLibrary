@@ -1,7 +1,7 @@
 using System;
 
-using GameLibrary.Graphics;
-namespace GameLibrary.Interface.Elements {
+
+namespace GameLibrary.Graphics {
 // GUI elements
 // inherits from IElements
 // placed in a GUI with a location and can subscribe to events to update their state
