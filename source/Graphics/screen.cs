@@ -26,6 +26,7 @@ class Screen : IUpdateable {
     // print frame
     public void updateFrame() {
         Printer.updateFrame(this);
+        FrameBuffer.flaggedRows.Clear();
     }
 
 
