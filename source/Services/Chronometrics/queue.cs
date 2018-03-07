@@ -6,7 +6,7 @@ using GameLibrary.Interface;
 using GameLibrary.Services.Chronometrics;
 
 namespace GameLibrary.Services {
-public class Queue {
+class Queue {
     // list of units, bullets and weapons
     readonly List<IChronometric> chronoQueue;
     // turn length in ms. Process sleeps that ammoung once per run

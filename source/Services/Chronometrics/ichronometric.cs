@@ -5,7 +5,7 @@ namespace GameLibrary.Services.Chronometrics {
 
 // has a chronometer with a certain interval
 // aplicable to Entitys and weapons. all of which are referenced in Queue.List<IChronometric>
-public interface IChronometric {
+interface IChronometric {
     // main method. does something if chronometer returns true
     bool tick();
     
