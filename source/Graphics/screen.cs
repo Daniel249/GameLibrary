@@ -1,10 +1,7 @@
 
 
 namespace GameLibrary.Graphics {
-class Screen {
-    // position in console
-    public int Position_x { get; private set; }
-    public int Position_y { get; private set; }
+class Screen : IUpdateable {
 
     // printer and frame references
     private Printer Printer { get; set; }
@@ -14,12 +11,23 @@ class Screen {
     public int Size_x { get; private set; }
     public int Size_y { get; private set; }
 
+    // IForm implementation
+    // position in console
+    public int Position_x { get; private set; }
+    public int Position_y { get; private set; }
+    public void updateprint(IPrintable child, int relative_x, int relative_y) {
+
+    }
+    public void updatedelete(IPrintable child, int relative_x, int relative_y) {
+
+    }
 
     // methods
     // print frame
     public void updateFrame() {
         Printer.updateFrame(this);
     }
+
 
     // constructor 
     public Screen(int size_x, int size_y, Printer assignedPrinter) {
