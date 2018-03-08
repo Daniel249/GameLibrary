@@ -4,7 +4,7 @@ namespace GameLibrary.Graphics {
 
 // render T[][] in snapshot<T>
 static class Render {
-    
+
     // public methods
     public static void print<T>(ITexture<T> printable, int pos_x, int pos_y, ISnapshot<T> frame) {
         printdelete(printable, pos_x, pos_y,  frame, true);
@@ -54,12 +54,10 @@ static class Render {
 
 
 
-
-
     // helpers 
 
     // cut parts of code[,] which are out of map
-    // offset<0 => out of map to the left
+    // offset<0 => out of map to the left/up
     public static void calcOffset(int mapSize, int entityPosition, 
         ref int entitySize, out int loopStart) {
         loopStart = 0;
@@ -81,7 +79,7 @@ static class Render {
         }
     }
 
-
+    // get string of right length
     public static string getPrintable(char[] material, int start, int limit) {
         // if not out of map. return as is
         if(start == 0 && limit >= material.Length) {
