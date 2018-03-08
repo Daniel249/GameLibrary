@@ -4,54 +4,8 @@ namespace GameLibrary.Graphics {
 
 // render T[][] in snapshot<T>
 static class Render {
+    
     // public methods
-    public static void print<T>(IPrintable printable, ISnapshot<T> frame) {
-        printdelete(printable, frame, true);
-    }
-    public static void delete<T>(IPrintable printable, ISnapshot<T> frame) {
-        printdelete(printable, frame, false);
-    }
-
-    // main render method
-    public static void printdelete<T>(IPrintable printable, ISnapshot<T> frame, bool print) {
-        // set margins to max
-        int loop_x = 0;
-        int loop_y = 0;
-        int limit_x = printable.Texture.GetLength(true);
-        int limit_y = printable.Texture.GetLength(false);
-
-        // calc margins actual size
-        calcOffset(frame.Size_x, printable.Position_x, 
-            ref limit_x, out loop_x);
-        calcOffset(frame.Size_y, printable.Position_y, 
-            ref limit_y, out loop_y);
-
-        // loop through margin values
-        for(int y = loop_y; y < limit_y; y++) {
-            // x margin 
-            int printLength = printable.Texture.GetLength(y);
-            if(limit_x < printable.Texture.GetLength(y)) {
-                printLength = limit_x;
-            }
-            // char array to print based on print or delete
-            char[] toPrint = printable.Texture.getCode(y);
-            if(!print) {
-                toPrint = new char[printLength];
-            }
-            // row to print. based on printable location
-            int rowToPrint = printable.Position_y + y;
-            // copy texture to frame
-            Array.Copy (
-                toPrint, loop_x, frame.state[rowToPrint], printable.Position_x, printLength
-            );
-            // flag row
-            frame.flagRow(rowToPrint);
-         
-        }
-    }
-
-
-
     public static void print<T>(ITexture<T> printable, int pos_x, int pos_y, ISnapshot<T> frame) {
         printdelete(printable, pos_x, pos_y,  frame, true);
     }
