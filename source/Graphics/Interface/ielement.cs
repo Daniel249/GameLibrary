@@ -7,7 +7,6 @@ namespace GameLibrary.Graphics {
 // updated through events
 interface IElement : IPrintable {
 
-    GUInterface GUInterface { get; }
 
 }
 }

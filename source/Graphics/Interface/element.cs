@@ -8,7 +8,7 @@ namespace GameLibrary.Graphics {
 class InterfaceElement /*: IElement*/{
     // IPrintable implementation
     // reference to screen
-    public GUInterface GUInterface { get; private set; }
+    //public GUInterface GUInterface { get; private set; }
     // Texture
     public Texture Texture { get; private set; }
     // position in screen
