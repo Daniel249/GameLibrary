@@ -16,10 +16,10 @@ class Screen : IUpdateable {
     public int Position_x { get; private set; }
     public int Position_y { get; private set; }
     public void updateprint(IPrintable child, int relative_x, int relative_y) {
-        Render.print(child.Texture, relative_x, relative_y, FrameBuffer);
+        Printer.print(child, relative_x, relative_y, this);
     }
     public void updatedelete(IPrintable child, int relative_x, int relative_y) {
-        Render.delete(child.Texture, relative_x, relative_y, FrameBuffer);
+        Printer.delete(child, relative_x, relative_y, this);
     }
 
     // methods

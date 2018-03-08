@@ -8,7 +8,7 @@ namespace GameLibrary.Graphics {
 class LinePrinter : Printer {
 
     // print frame to console
-    public void updateFrame(Screen screen) {
+    public override void updateFrame(Screen screen) {
         for(int i = 0; i < screen.FrameBuffer.flaggedRows.Count; i++) {
             int currentLine = screen.FrameBuffer.flaggedRows[i];
             string printLine = new string(screen.FrameBuffer.state[currentLine]);

@@ -11,12 +11,22 @@ namespace GameLibrary.Graphics {
 class LegacyPrinter : Printer {
     // Printer implementation
     // already print in legacyinterface
-    public void updateFrame(Screen screen) {
-
+    public override void updateFrame(Screen screen) {
+        // dont print to frame
+    }
+    public override void print(IPrintable printable, int relative_x, int relative_y, Screen screen) {
+        printdelete(printable, relative_x, relative_y, screen, true);
+    }
+    public override void delete(IPrintable printable, int relative_x, int relative_y, Screen screen) {
+        printdelete(printable, relative_x, relative_y, screen, false);
     }
 
+
     // main print method
-    public static void printdelete(IPrintable entity, Screen screen, bool print) {
+    public static void printdelete(IPrintable entity, int rel_x, int rel_y, Screen screen, bool print) {
+    // params: printable (with texture), relative position in form hierarchy, 
+    // screen (with its position), bool to print or not to print 
+
         // defines reference and colors to print
         // color and reference
         IPrintable reference;
@@ -35,8 +45,8 @@ class LegacyPrinter : Printer {
         }
 
         // other values and references
-        int pos_x = entity.Position_x;
-        int pos_y = entity.Position_y;
+        int pos_x = rel_x;
+        int pos_y = rel_y;
         int map_x = SBGame.getMap().Size_x;
         int map_y = SBGame.getMap().Size_y;
 
