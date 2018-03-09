@@ -1,24 +1,46 @@
 using System;
 
+using GameLibrary.Graphics.Display;
 
 namespace GameLibrary.Graphics {
-// GUI elements
-// inherits from IElements
-// placed in a GUI with a location and can subscribe to events to update their state
-class InterfaceElement /*: IElement*/{
+
+class InterfaceElement : IPrintable {
+
     // IPrintable implementation
-    // reference to screen
-    //public GUInterface GUInterface { get; private set; }
-    // Texture
-    public Texture Texture { get; private set; }
-    // position in screen
-    public int Position_x { get; set; }
-    public int Position_y { get; set; }
+    public virtual Texture Texture { get; private set; }
+
+
+    // IForm implementations
+
+    public IUpdateable Parent { get; private set; }
+
+    // position
+    public int Position_x { get; private set; }
+    public int Position_y { get; private set; }
 
 
     // constructor 
-    public InterfaceElement(int pos_x, int pos_y) {
 
+    // main constructor method
+    protected void buildInterface(Texture texture, IUpdateable parent, int pos_x, int pos_y) {
+        Texture = texture;
+        Parent = parent;
+        Position_x = pos_x;
+        Position_y = pos_y;
+    }
+
+    // overloads
+    public InterfaceElement(Texture texture, IUpdateable parent, int pos_x, int pos_y) {
+        buildInterface(texture, parent, pos_x, pos_y);
+    }
+    public InterfaceElement(String rawTexture, IUpdateable parent, int pos_x, int pos_y) {
+        // build Texture and pass it to factory
+        char[][] code = new char[][] {
+            rawTexture.ToCharArray()
+        };
+        Texture texture = new Texture(code, Terminal.DefaultBackColor, Terminal.DefaultForeColor);
+        
+        buildInterface(texture, parent, pos_x, pos_y);
     }
 }
 }
