@@ -1,6 +1,8 @@
 using System;
 using System.Diagnostics;
 using System.Threading;
+
+using SB.Assets;
 using GameLibrary.Services.Chronometrics;
 // print to console on tick
 using GameLibrary.Graphics.Display;
@@ -31,8 +33,8 @@ class Watch : IChronometric{
         if(cronometro.tick()) {
             Terminal.PrintString(getTime(), Terminal.Size_x - 40, 0);
 
-            Terminal.PrintString("health: " + SBGame.getPlayer().getHealth() + "  ", Terminal.Size_x - 80, 0);
-
+            string str = "health: " + SBGame.getPlayer().getHealth() + "  ";
+            UserInterface.HealthLabel.Edit(str);
             return true;
         } else {
             return false;
