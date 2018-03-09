@@ -16,6 +16,16 @@ static class TextureInitializer {
         for(int i = 0; i < originalArray.Length; i++){
             originalArray[i] = with;
         }
-    }  
+    }
+
+    // make char[][] out of string[]
+    public static char[][] Pixelate(this string[] original) {
+        // build Texture and pass it to factory
+        char[][] code = new char[original.Length][];
+        for(int i = 0; i < original.Length; i++) {
+            code[i] = original[i].ToCharArray();
+        }
+        return code;
+    }
 }
 }
