@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using GameLibrary.Graphics.Display;
 using GameLibrary.Graphics;
@@ -36,12 +37,26 @@ class Game {
 
     
     // screen control 
-    static Screen mainScreen;
+    static List<Screen> screens = new List<Screen>();
+
+    // print certain screen
+    public static void printScreen(int num) {
+        screens[num].updateFrame();
+    }
+
+    // print all screens
+    public static void printScreen() {
+        for(int i = 0; i <screens.Count; i++) {
+            screens[i].updateFrame();
+        }
+    }
+
+    // get set
     public static Screen getMainScreen() {
-        return mainScreen;
+        return screens[0];
     }
     public static void setScreen(Screen screen) {
-        mainScreen = screen;
+        screens.Add(screen);
     }
 
 }
