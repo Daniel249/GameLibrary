@@ -22,7 +22,7 @@ class InterfaceElement : IPrintable {
     // constructor 
 
     // main constructor method
-    protected void buildInterface(Texture texture, IUpdateable parent, int pos_x, int pos_y) {
+    protected void buildInterface(IUpdateable parent, int pos_x, int pos_y, Texture texture) {
         Texture = texture;
         Parent = parent;
         Position_x = pos_x;
@@ -30,17 +30,18 @@ class InterfaceElement : IPrintable {
     }
 
     // overloads
-    public InterfaceElement(Texture texture, IUpdateable parent, int pos_x, int pos_y) {
-        buildInterface(texture, parent, pos_x, pos_y);
+    public InterfaceElement(IUpdateable parent, int pos_x, int pos_y, Texture texture) {
+        buildInterface(parent, pos_x, pos_y, texture);
     }
-    public InterfaceElement(String rawTexture, IUpdateable parent, int pos_x, int pos_y) {
+    public InterfaceElement(IUpdateable parent, int pos_x, int pos_y, params string[] args) {
         // build Texture and pass it to factory
-        char[][] code = new char[][] {
-            rawTexture.ToCharArray()
-        };
+        char[][] code = new char[args.Length][];
+        for(int i = 0; i < args.Length; i++) {
+            code[i] = args[i].ToCharArray();
+        }
         Texture texture = new Texture(code, Terminal.DefaultBackColor, Terminal.DefaultForeColor);
-        
-        buildInterface(texture, parent, pos_x, pos_y);
+
+        buildInterface(parent, pos_x, pos_y, texture);
     }
 }
 }

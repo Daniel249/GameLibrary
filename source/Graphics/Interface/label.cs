@@ -9,12 +9,12 @@ class Label : InterfaceElement {
 
     // constructor
 
-    public Label(String rawTexture, IUpdateable parent, int pos_x, int pos_y) 
-    : base(rawTexture, parent, pos_x, pos_y) {
+    public Label(IUpdateable parent, int pos_x, int pos_y, params String[] args) 
+    : base(parent, pos_x, pos_y, args) {
 
     }
-    public Label(Texture texture, IUpdateable parent, int pos_x, int pos_y) 
-    : base(texture, parent, pos_x, pos_y) {
+    public Label(IUpdateable parent, int pos_x, int pos_y, Texture texture) 
+    : base(parent, pos_x, pos_y, texture) {
 
     }
 }
