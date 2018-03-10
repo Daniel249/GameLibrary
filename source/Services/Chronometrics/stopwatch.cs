@@ -31,7 +31,7 @@ class Watch : IChronometric{
     Chronometer cronometro;
     public bool tick() {
         if(cronometro.tick()) {
-            Terminal.PrintString(getTime(), Terminal.Size_x - 40, 0);
+            UserInterface.FPSLabel.Edit(getTime());
 
             string str = "health: " + SBGame.getPlayer().getHealth() + "  ";
             UserInterface.HealthLabel.Edit(str);
