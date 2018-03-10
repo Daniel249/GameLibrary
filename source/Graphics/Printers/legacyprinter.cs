@@ -47,8 +47,8 @@ class LegacyPrinter : Printer {
         // other values and references
         int pos_x = rel_x;
         int pos_y = rel_y;
-        int map_x = SBGame.getMap().Size_x;
-        int map_y = SBGame.getMap().Size_y;
+        int map_x = screen.FrameBuffer.Size_x;
+        int map_y = screen.FrameBuffer.Size_y;
 
         // loop and limit start as values for a normal for-loop,
         // equal to 0 and max value respectively.

@@ -76,6 +76,11 @@ static class Render {
             loopStart = (-1)*offset;
         } else if(offset > 0) {
             entitySize -= offset;
+            // if completely out of frame. default to 0
+            // if(entitySize < 0) {
+            //     entitySize = 0;
+            // }
+            
         }
     }
 
