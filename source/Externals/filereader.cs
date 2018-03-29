@@ -1,7 +1,8 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using GameLibrary.Graphics.Display;
+
+using GameLibrary.Graphics;
 using SB;
 
 namespace GameLibrary.Externals {
@@ -29,7 +30,7 @@ class Filereader {
         }
         Database.setTextures(textures, weaponLocation);
     }
-    // transform string array to 2d char array
+    // transform string list to char[][]
     char[][] parseTexture(List<string> stringList) {
         // char dimension_y equals to list length
         int dimension_y = stringList.Count;
@@ -45,7 +46,7 @@ class Filereader {
 
     // reads and then processes text file
     // output is saved in rawTextures dictionary
-    public void processFileData() {
+    void processFileData() {
 
         // initialize dictionary
         rawTextures = new Dictionary<string, List<string>>();

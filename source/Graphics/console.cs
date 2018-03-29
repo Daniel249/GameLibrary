@@ -1,6 +1,5 @@
 using System;
-using GameLibrary.Graphics;
-namespace GameLibrary.Graphics.Display {
+namespace GameLibrary.Graphics {
 static class Terminal {
     // numbers based on testing
     // not in use
@@ -25,7 +24,8 @@ static class Terminal {
 
 
     // main print to console method. print strings
-    public static void PrintString(string str, int pos_x, int pos_y, ConsoleColor bcolor, ConsoleColor fcolor) {
+    public static void PrintString(string str, int pos_x, int pos_y, 
+    ConsoleColor bcolor, ConsoleColor fcolor) {
         Console.SetCursorPosition(pos_x, pos_y);
         Console.ForegroundColor = fcolor;
         Console.BackgroundColor = bcolor;
@@ -38,7 +38,8 @@ static class Terminal {
     }
 
 
-    public static void PrintChar(char cha, int pos_x, int pos_y, ConsoleColor bcolor, ConsoleColor fcolor) {
+    public static void PrintChar(char cha, int pos_x, int pos_y, 
+    ConsoleColor bcolor, ConsoleColor fcolor) {
         Console.SetCursorPosition(pos_x, pos_y);
         Console.ForegroundColor = fcolor;
         Console.BackgroundColor = bcolor;
@@ -47,8 +48,12 @@ static class Terminal {
     }
 
 
+
     // default console colors
     public const ConsoleColor DefaultBackColor = ConsoleColor.Black;
     public const ConsoleColor DefaultForeColor = ConsoleColor.White;
+
+    // change default colors
+    
 }
 }

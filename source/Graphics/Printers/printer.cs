@@ -1,5 +1,4 @@
 using System;
-using GameLibrary.Graphics.Display;
 
 namespace GameLibrary.Graphics {
 abstract class Printer {

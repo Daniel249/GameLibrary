@@ -1,5 +1,4 @@
 
-using GameLibrary.Graphics.Display;
 
 namespace GameLibrary.Graphics {
 

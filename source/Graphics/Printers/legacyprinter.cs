@@ -2,7 +2,7 @@ using System;
 
 using SB.Objects;
 using GameLibrary.Platform;
-using GameLibrary.Graphics.Display;
+
 using SB;
 
 namespace GameLibrary.Graphics {

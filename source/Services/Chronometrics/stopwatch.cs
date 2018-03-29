@@ -5,7 +5,6 @@ using System.Threading;
 using SB.Assets;
 using GameLibrary.Services.Chronometrics;
 // print to console on tick
-using GameLibrary.Graphics.Display;
 // access player health to print
 using GameLibrary.Platform;
 using SB;
