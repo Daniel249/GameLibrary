@@ -19,7 +19,7 @@ class Watch : IChronometric{
     public string getTime() {
         queueCounter++;
         string str = queueCounter + "    " + stopwatch.Elapsed.ToString() + "      " 
-            + timer.Elapsed.TotalMilliseconds.ToString();
+            + (1000 / timer.Elapsed.TotalMilliseconds).ToString();
 
         timer.Restart();
         return str;
